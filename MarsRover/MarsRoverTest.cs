@@ -77,7 +77,9 @@ public class MarsRoverTest
     [Theory]
     [InlineData("","0,0:N")]
     [InlineData("MMRMM","2,2:E")]
-    [InlineData("MMRMMRM","1,2:S")]
+    [InlineData("MMRMMRM","2,1:S")]
+    [InlineData("MMRMMLM","2,3:N")]
+ 
     
     public void Si_Envio_movimientos_Debe_Retornar_Cordenas( string movimiento,string cordenadas)
     {
@@ -132,6 +134,10 @@ public class MarsRoverTest
             rover.PosicionY++;
         if (rover.Orientacion == Orientacion.S)
             rover.PosicionY--;
+        if (rover.Orientacion == Orientacion.E)
+            rover.PosicionX++;
+        if (rover.Orientacion == Orientacion.W)
+            rover.PosicionX--;
     }
 
     private static void GirarDerecha(MarsRover rover)
