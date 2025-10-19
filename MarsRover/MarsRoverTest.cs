@@ -73,6 +73,20 @@ public class MarsRoverTest
         //Assert
         resultado.Should().Be("0,0:S");
     }
+
+    [Theory]
+    [InlineData("","0,0:N")]
+    [InlineData("MMRMM","2,2:E")]
+    [InlineData("MMRMMRM","1,2:S")]
+    
+    public void Si_Envio_movimientos_Debe_Retornar_Cordenas( string movimiento,string cordenadas)
+    {
+    
+        //Act
+        string resultado = RealizarMovimiento(movimiento);
+        //Assert
+        resultado.Should().Be(cordenadas);
+    }
     public enum Orientacion
     {
         N,
@@ -97,22 +111,37 @@ public class MarsRoverTest
         {
             if (comando == 'L')
             {
-                rover.Orientacion = (Orientacion)(((int)rover.Orientacion - 1+4) % 4);
+                GirarIzquierda(rover);
             }
             else if (comando == 'R')
             {
-                rover.Orientacion = (Orientacion)(((int)rover.Orientacion + 1) % 4);
+                GirarDerecha(rover);
             }
             if (comando == 'M')
             {
-                if (rover.Orientacion == Orientacion.N)
-                    rover.PosicionY++;
-                if (rover.Orientacion == Orientacion.S)
-                    rover.PosicionY--;
+                Mover(rover);
             }
         }
 
         return $"{rover.PosicionX},{rover.PosicionY}:{rover.Orientacion}";
+    }
+
+    private static void Mover(MarsRover rover)
+    {
+        if (rover.Orientacion == Orientacion.N)
+            rover.PosicionY++;
+        if (rover.Orientacion == Orientacion.S)
+            rover.PosicionY--;
+    }
+
+    private static void GirarDerecha(MarsRover rover)
+    {
+        rover.Orientacion = (Orientacion)(((int)rover.Orientacion + 1) % 4);
+    }
+
+    private static void GirarIzquierda(MarsRover rover)
+    {
+        rover.Orientacion = (Orientacion)(((int)rover.Orientacion - 1+4) % 4);
     }
 }
 
