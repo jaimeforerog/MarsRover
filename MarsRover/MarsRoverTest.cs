@@ -27,6 +27,17 @@ public class MarsRoverTest
         resultado.Should().Be("0,1:N");
 
     }
+    [Fact]
+    public void Si_Envio_MR_Debe_Retornar_01_E()
+    {
+        //arrenge
+        string movimiento = "M";
+        //Act
+        string resultado = RealizarMovimiento( movimiento);
+        //Assert
+        resultado.Should().Be("0,1:E");
+
+    }
 
     private string RealizarMovimiento(string movimiento)
     {
