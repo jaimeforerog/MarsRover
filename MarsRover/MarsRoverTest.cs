@@ -63,7 +63,16 @@ public class MarsRoverTest
         //Assert
         resultado.Should().Be("0,0:W");
     }
-
+    [Fact]
+    public void Si_Envio_MRRM_Debe_Retornar_00_S()
+    {
+        //arrenge
+        string movimiento = "MRRM";
+        //Act
+        string resultado = RealizarMovimiento(movimiento);
+        //Assert
+        resultado.Should().Be("0,0:S");
+    }
     public enum Orientacion
     {
         N,
