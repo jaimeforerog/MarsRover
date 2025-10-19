@@ -41,6 +41,29 @@ public class MarsRoverTest
         resultado.Should().Be("0,1:E");
 
     }
+    [Fact]
+    public void Si_Envio_RR_Debe_Retornar_00_S()
+    {
+        //arrenge
+        string movimiento = "RR";
+        //Act
+        string resultado = RealizarMovimiento(movimiento);
+        //Assert
+        resultado.Should().Be("0,0:S");
+
+    }
+
+    [Fact]
+    public void Si_Envio_L_Debe_Retornar_00_W()
+    {
+        //arrenge
+        string movimiento = "L";
+        //Act
+        string resultado = RealizarMovimiento(movimiento);
+        //Assert
+        resultado.Should().Be("0,0:W");
+    }
+
     public enum Orientacion
     {
         N,
@@ -53,7 +76,6 @@ public class MarsRoverTest
     {
         public int PosicionX { set; get; } = 0;
         public int PosicionY { set; get; } = 0;
-
         public Orientacion Orientacion { set; get; } = Orientacion.N;
 
     }
@@ -64,6 +86,7 @@ public class MarsRoverTest
 
         foreach (var comando in movimiento)
         {
+         
             if (comando == 'M')
             {
                 if (rover.Orientacion == Orientacion.N)
@@ -71,8 +94,7 @@ public class MarsRoverTest
             }
             else if (comando == 'R')
             {
-                if (rover.Orientacion == Orientacion.N)
-                    rover.Orientacion = Orientacion.E;
+                rover.Orientacion = (Orientacion)(((int)rover.Orientacion + 1) % 4);
             }
         }
 
