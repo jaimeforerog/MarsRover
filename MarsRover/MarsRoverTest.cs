@@ -28,8 +28,10 @@ public class MarsRoverTest
 
     }
 
-    private string RealizarMovimiento(object numero)
+    private string RealizarMovimiento(string movimiento)
     {
-        return "0,0:N";
+       if (movimiento=="")
+          return "0,0:N";
+       return "0,1:N";
     }
 }
