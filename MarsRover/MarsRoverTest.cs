@@ -18,6 +18,6 @@ public class MarsRoverTest
 
     private string RealizarMovimiento(object numero)
     {
-        throw new NotImplementedException();
+        return "0,0:N";
     }
 }
