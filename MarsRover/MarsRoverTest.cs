@@ -5,7 +5,7 @@ namespace MarsRover;
 public class MarsRoverTest
 {
     [Fact]
-    public void SiEnvio_vacio_Debe_Retornar_00_N()
+    public void Si_Envio_vacio_Debe_Retornar_00_N()
     {
         //arrenge
         string movimiento = "";
@@ -13,6 +13,18 @@ public class MarsRoverTest
         string resultado = RealizarMovimiento( movimiento);
         //Assert
         resultado.Should().Be("0,0:N");
+
+    }
+    
+    [Fact]
+    public void Si_Envio_M_Debe_Retornar_01_N()
+    {
+        //arrenge
+        string movimiento = "M";
+        //Act
+        string resultado = RealizarMovimiento( movimiento);
+        //Assert
+        resultado.Should().Be("0,1:N");
 
     }
 
