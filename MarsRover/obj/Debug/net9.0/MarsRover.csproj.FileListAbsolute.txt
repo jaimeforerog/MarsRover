@@ -97,3 +97,4 @@ C:\Users\jaime.forero\RiderProjects\MarsRover\MarsRover\obj\Debug\net9.0\refint\
 C:\Users\jaime.forero\RiderProjects\MarsRover\MarsRover\obj\Debug\net9.0\MarsRover.pdb
 C:\Users\jaime.forero\RiderProjects\MarsRover\MarsRover\obj\Debug\net9.0\MarsRover.genruntimeconfig.cache
 C:\Users\jaime.forero\RiderProjects\MarsRover\MarsRover\obj\Debug\net9.0\ref\MarsRover.dll
+C:\Users\jaime.forero\RiderProjects\MarsRover\MarsRover\obj\Debug\net9.0\MarsRover.sourcelink.json

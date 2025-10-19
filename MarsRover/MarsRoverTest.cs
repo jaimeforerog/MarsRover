@@ -86,7 +86,11 @@ public class MarsRoverTest
 
         foreach (var comando in movimiento)
         {
-         
+            if (comando == 'L')
+            {
+                rover.Orientacion = (Orientacion)(((int)rover.Orientacion - 1+4) % 4);
+            }
+
             if (comando == 'M')
             {
                 if (rover.Orientacion == Orientacion.N)
