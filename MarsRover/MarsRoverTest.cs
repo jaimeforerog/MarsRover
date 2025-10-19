@@ -99,15 +99,16 @@ public class MarsRoverTest
             {
                 rover.Orientacion = (Orientacion)(((int)rover.Orientacion - 1+4) % 4);
             }
-
+            else if (comando == 'R')
+            {
+                rover.Orientacion = (Orientacion)(((int)rover.Orientacion + 1) % 4);
+            }
             if (comando == 'M')
             {
                 if (rover.Orientacion == Orientacion.N)
                     rover.PosicionY++;
-            }
-            else if (comando == 'R')
-            {
-                rover.Orientacion = (Orientacion)(((int)rover.Orientacion + 1) % 4);
+                if (rover.Orientacion == Orientacion.S)
+                    rover.PosicionY--;
             }
         }
 
